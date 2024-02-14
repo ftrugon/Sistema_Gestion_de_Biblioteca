@@ -1,7 +1,8 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+data class Libro(val titulo:String,val autor:String,val anioPubli:Int)
+data class Revista(val titulo:String,val issue:Int,val anio:Int)
+data class DVD(val titulo:String,val director:String,val anio:Int)
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+
+fun main() {
+
 }
