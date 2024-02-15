@@ -8,22 +8,22 @@ sealed class Usuario {
     class Profesor(val id:String,val nommbre:String, val departamento:String) : Usuario()
     class Visitante(val id:String,val nommbre:String) : Usuario()
 
-
-    fun pillarlibro(usuario: Usuario,libro: Libro) = when (usuario) {
-            is Visitante -> {
-                "Un visitante no puede cojer libros"
-            }
-
-            is Estudiante -> {
-                "El estudiante ha cogido prestado un libro "
-            }
-
-            is Profesor -> {
-                "El profesor ha cogiddo un libro"
-            }
-        }
 }
 
+fun pillarlibro(usuario: Usuario,libro: Libro) = when (usuario) {
+    is Usuario.Visitante -> {
+        "Un visitante no puede cojer libros"
+    }
+
+    is Usuario.Estudiante -> {
+        "El estudiante ha cogido prestado un libro "
+    }
+
+    is Usuario.Profesor -> {
+        "El profesor ha cogiddo un libro"
+    }
+
+}
 
 fun main() {
 
@@ -34,13 +34,11 @@ fun main() {
     val profe = Usuario.Profesor("chuknorris","Piña","Awanabumbambam")
     val visi = Usuario.Visitante("pringao", "qwerty")
 
-    println(estu.pillarlibro(estu, l1))
-    println(estu.pillarlibro(estu, l2))
+    pillarlibro(estu, l1)
+    pillarlibro(estu, l2)
 
+    pillarlibro(profe,l1)
+    pillarlibro(profe,l2)
 
-    println(profe.pillarlibro(profe,l1))
-    println(profe.pillarlibro(profe,l2))
-
-
-    println(visi.pillarlibro(visi,l1))
+    pillarlibro(visi,l1)
 }
